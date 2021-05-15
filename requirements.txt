@@ -26,3 +26,8 @@ tkcalendar==1.6.1
 traitlets==5.0.5
 wcwidth==0.2.5
 zope.interface==5.4.0
+
+jdatetime~=3.6.2
+win10toast~=0.9
+setuptools~=49.2.1
+Pillow~=8.2.0
