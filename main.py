@@ -9,6 +9,7 @@ import logging
 from win10toast import ToastNotifier
 from task import Task
 import hash_password as hashing
+import calendar_image
 
 user = User()
 task = Task(user.username)
@@ -138,7 +139,8 @@ while user.log_in is True:
     print(f'7- See tasks periodically')
     print(f'8- Categorize Task')
     print('9- change password')
-    print(f'10- Logout')
+    print('10- calendar')
+    print(f'11- Logout')
     print(f'{color.ENDC}')
 
     # --------------------------- Reminder Turns On---------------------------
@@ -288,8 +290,13 @@ while user.log_in is True:
             if hashing.verify_password(row[0]['password'], old_password) is True:
                 new_password = input(f"Enter new password: {color.ENDC}")
                 user.change_password(user.username, new_password)
-
         elif user_input == 10:
+            # ------------------------------Logout------------------------------
+            time_period = input(f"{color.PURPLE}Enter week Period: [2021-05-23 - 2021-05-27] {color.ENDC}")
+            calendar_image.week_calendar(user.username, period=time_period)
+            print(f"{color.YELLOW}*** Image Created ***{color.ENDC}")
+
+        elif user_input == 11:
             # ------------------------------Logout------------------------------
             print(
                 f"{color.PURPLE}{color.BOLD}--- Have a nice Day {emoji.emojize(':smiling_face_with_smiling_eyes:')} ---"
