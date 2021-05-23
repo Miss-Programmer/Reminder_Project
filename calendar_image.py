@@ -28,5 +28,5 @@ def week_calendar(username, period):
 
     calendar = Calendar.build(config)
     calendar.add_events(events)
-    calendar.save(f"{username}_week_tasks.png")
+    calendar.save(f"{username}_tasks.png")
 

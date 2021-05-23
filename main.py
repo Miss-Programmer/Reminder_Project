@@ -100,8 +100,8 @@ try:
 
         if user_task['importance_degree'] == '1' and user_task['progress'] != '100':
             if not schedule_postponed:
-                schedule.every(10).seconds.do(print_remind_message)
-            schedule.every(5).seconds.do(print_remind_message)
+                schedule.every(10).minutes.do(print_remind_message)
+            schedule.every(5).minutes.do(print_remind_message)
 
         elif user_task['importance_degree'] == '2' and user_task['progress'] != '100':
             due_day_datetime = datetime.strptime(user_task['due_time'], "%Y-%m-%d %H:%M:%S")
@@ -291,10 +291,11 @@ while user.log_in is True:
                 new_password = input(f"Enter new password: {color.ENDC}")
                 user.change_password(user.username, new_password)
         elif user_input == 10:
-            # ------------------------------Logout------------------------------
+            # ------------------------------calendar------------------------------
             time_period = input(f"{color.PURPLE}Enter week Period: [2021-05-23 - 2021-05-27] {color.ENDC}")
             calendar_image.week_calendar(user.username, period=time_period)
             print(f"{color.YELLOW}*** Image Created ***{color.ENDC}")
+            # pillow
 
         elif user_input == 11:
             # ------------------------------Logout------------------------------

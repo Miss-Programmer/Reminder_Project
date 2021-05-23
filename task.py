@@ -200,6 +200,3 @@ class Task:
             logging.error(f"Error Occurred. {e}")
 
 
-if __name__ == '__main__':
-    task = Task('ali')
-    task.postpone('kosar', '2021-05-22 17:00:00', 1)

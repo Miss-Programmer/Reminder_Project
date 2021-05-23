@@ -1,5 +1,7 @@
 username,title,sender,description,link,location,task_type,created_time,due_time,importance,progress,importance_degree,accepted
-kosar,python exam,,exam from logging,,public room,exam,2021-05-22 15:26:00,2021-05-23 11:45:00,Do!,20,1,True
-kosar,shopping,,shopping with friends,,Iran Mall,hobby,2021-05-22 15:26:49,2021-05-23 17:00:00,Decide!,0,2,True
+kosar,python Exam,,exam from logging,,public room,exam,2021-05-22 15:26:00,2021-05-23 11:45:00,Do!,20,1,True
+kosar,shopping,,shopping with friends,,Iran Mall,hobby,2021-05-22 15:26:49,2021-05-23 17:00:00,Decide!,20,2,True
 ali,playing football,,playing with friends,,park,hobby,2021-05-22 15:37:27,2021-05-26 12:00:00,Delegate,0,3,True
 ali,shopping,kosar,shopping with friends,,Iran Mall,hobby,2021-05-22 22:37:37,2021-05-22 17:00:00,Decide!,0,2,True
+kosar,cleaning house,,cleaning house for party,,home,personal,2021-05-23 11:03:57,2021-06-02 12:00:00,Delegate,20,3,True
+kosar,playing football,ali,playing with friends,,park,hobby,2021-05-23 11:30:58,2021-05-26 12:00:00,Delegate,0,3,True

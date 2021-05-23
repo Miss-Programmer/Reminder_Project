@@ -13,15 +13,17 @@ logging.basicConfig(level=logging.INFO, filename='log_data.log', filemode='a',
 
 
 class User:
-    def __init__(self, username='', password='', log_in=False):
+    def __init__(self, username='', password='', log_in=False, user_status='acrive'):
         """
         :param username: username of user
         :param password: password of user
         :param log_in: if log_in=true, user login successfully, if log_in=False, user can't login
+        :param user_status active but if user inter wrong password 3 times, it will be blocked
         """
         self.username = username
         self.password = password
         self.log_in = log_in
+        self.user_status = user_status
 
     def signup(self):
         """
@@ -44,7 +46,10 @@ class User:
                 input_password = hashing.hash_password(input(f"{color.PURPLE}please create a password: {color.ENDC}"))
                 self.username = input_username
                 self.password = input_password
-                df = df.append({'username': input_username, 'password': input_password}, ignore_index=True)
+                self.user_status = 'active'
+                df = df.append(
+                    {'username': input_username, 'password': input_password, 'user_status': self.user_status},
+                    ignore_index=True)
                 df.to_csv('user_pass.csv', index=False)
                 print(f"{color.YELLOW}*** Welcome {self.username} {emoji.emojize(':smiling_face_with_smiling_eyes:')}"
                       f" ***{color.ENDC}\n")
@@ -115,7 +120,7 @@ class User:
                                     elif allowed == 2:
                                         allowed = 3
                                         row['user_status'] = 'blocked'
-                                        file.change_pandas(self.username, 'user_pass.csv', 'user_status', 'blocked')
+                                        file.change_pandas('user_pass.csv', 'user_status', 'blocked', self.username)
                                         print(
                                             f"{color.BOLD}{color.RED}"
                                             f"!!! You tried 3 times ... Please Try again later [action blocked] !!!\n"
@@ -326,7 +331,7 @@ class User:
                                                         "%Y-%m-%d %H:%M:%S"),
                                       request["due_time"], request["importance"], request["progress"],
                                       request["importance_degree"], True)
-                    accepted_index = file.get_index('requests.csv', 'title', task_title)
+                    accepted_index = file.get_index('requests.csv', 'title', task_title, user_name=user_name)
                     file.delete_pandas('requests.csv', int(accepted_index))
 
 
