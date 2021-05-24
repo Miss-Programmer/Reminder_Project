@@ -67,12 +67,12 @@ class Task:
 
         print(f"{color.YELLOW}*** '{self.title}' created! ***{color.ENDC}\n")
 
-        logging.info(f"TASK ADDED! {self.username}'s task created with name {self.title}")
+        logging.info(f"TASK ADDED! user's created task")
 
         tasks_type = ['personal', 'exam', 'hobby', 'study']
         if self.task_type not in tasks_type:
             logging.info(
-                f"New task type! {self.username} define new task_type with name {self.task_type} for task {self.title}")
+                f"New task type! user define new task_type with name {self.task_type}")
 
     def eisenhower_matrix(self, location=-1):
         """
@@ -166,7 +166,7 @@ class Task:
             print(f"{color.OKCYAN}task status : Almost Done...{color.ENDC}")
         elif self.progress == 100:
             print(f"{color.OKCYAN}task status : Done{color.ENDC}")
-            logging.info(f"{self.username} completed task {self.title}")
+            logging.info(f"user completed task")
         print('\n')
 
     @staticmethod
@@ -182,12 +182,12 @@ class Task:
             if select_postpone == 1:
                 # 1 day
                 new_due_time = datetime.strptime(due_time, "%Y-%m-%d %H:%M:%S") + timedelta(days=1)
-                logging.info(f"{user_name} postpone task for one day")
+                logging.info(f"user postpone task for one day")
 
             elif select_postpone == 2:
                 # 1 week
                 new_due_time = datetime.strptime(due_time, "%Y-%m-%d %H:%M:%S") + timedelta(weeks=1)
-                logging.info(f"{user_name} postpone task for one week")
+                logging.info(f"user postpone task for one week")
             else:
                 raise Exception("invalid input")
 

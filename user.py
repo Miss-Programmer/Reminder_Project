@@ -106,7 +106,7 @@ class User:
                                           f"{color.ENDC}\n")
                                     self.log_in = True
                                     logging.info(
-                                        f"{self.username} logged in with password {self.password}")
+                                        f"user logged in successfully")
                                     allowed = 3
                                     break
 
